@@ -255,7 +255,7 @@ private
     if @wiredump_file_base
       filename = @wiredump_file_base + '_response.xml'
       f = File.open(filename, "w")
-      f << receive_string
+      f << receive_string.force_encoding("ISO-8859-1").encode("UTF-8")
       f.close
     end
     case res.status
